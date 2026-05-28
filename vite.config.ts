@@ -13,8 +13,4 @@ export default defineConfig({
     },
     exports: true,
   },
-  staged: {
-    "*": "oxfmt --write --no-error-on-unmatched-pattern",
-    "*.{js,jsx,ts,tsx,cjs,mjs}": "oxlint --fix",
-  },
 })
