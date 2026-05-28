@@ -1,0 +1,67 @@
+{
+  "name": "ox-config",
+  "version": "0.0.0",
+  "description": "A starter for creating a TypeScript package.",
+  "homepage": "https://github.com/author/library#readme",
+  "bugs": {
+    "url": "https://github.com/author/library/issues"
+  },
+  "license": "MIT",
+  "author": "Author Name <author.name@mail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/author/library.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "dev": "vp pack --watch",
+    "test": "vp test",
+    "lint": "oxlint --fix",
+    "format": "oxfmt",
+    "prepublishOnly": "vp run build"
+  },
+  "dependencies": {
+    "@types/confusing-browser-globals": "^1.0.3",
+    "confusing-browser-globals": "^1.0.11",
+    "es-toolkit": "^1.47.0",
+    "eslint-plugin-perfectionist": "^5.9.0",
+    "globals": "^17.6.0",
+    "oxfmt": "^0.52.0",
+    "oxlint": "^1.67.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "@typescript/native-preview": "7.0.0-dev.20260509.2",
+    "bumpp": "^11.1.0",
+    "typescript": "^6.0.3",
+    "vite-plus": "^0.1.20"
+  },
+  "peerDependencies": {
+    "eslint-plugin-better-tailwindcss": "^4.5.0",
+    "eslint-plugin-react-x": "^5.8.1"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-react-x": {
+      "optional": true
+    },
+    "eslint-plugin-tailwindcss": {
+      "optional": true
+    }
+  },
+  "overrides": {
+    "oxfmt": "$oxfmt",
+    "oxlint": "$oxlint"
+  },
+  "packageManager": "pnpm@11.4.0"
+}
