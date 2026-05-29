@@ -150,8 +150,17 @@ function configReact(options: Options): Config {
       "react-x/unsupported-syntax": "error",
       "react-x/use-memo": "error",
 
+      // These rules are covered by built-in react rules:
+
+      "react-x/exhaustive-deps": "off",
+      "react-x/no-array-index-key": "off",
+      "react-x/no-clone-element": "off",
+      "react-x/no-direct-mutation-state": "off",
+      "react-x/rules-of-hooks": "off",
+
       // All other react-x rules off until we've had time to go through them,
       // assess them for usefulness and cross reference them with Oxlint built-in rules.
+
       "react-x/no-access-state-in-setstate": "off",
       "react-x/no-children-count": "off",
       "react-x/no-children-for-each": "off",

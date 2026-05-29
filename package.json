@@ -28,7 +28,8 @@
     "lint": "oxlint --fix",
     "format": "oxfmt",
     "prepublishOnly": "pnpm run build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "oxlint-inspector": "node ./oxlint-rule-checker/oxlint-rule-checker.ts"
   },
   "dependencies": {
     "@types/confusing-browser-globals": "^1.0.3",
@@ -44,7 +45,8 @@
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
     "tsdown": "^0.22.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
   },
   "peerDependencies": {
     "eslint-plugin-better-tailwindcss": "^4.5.0",
@@ -58,9 +60,5 @@
       "optional": true
     }
   },
-  "overrides": {
-    "oxfmt": "$oxfmt",
-    "oxlint": "$oxlint"
-  },
-  "packageManager": "pnpm@11.4.0"
+  "packageManager": "pnpm@11.5.0"
 }

@@ -3,12 +3,11 @@ import type { OxlintConfig } from "oxlint"
 import { mapValues } from "es-toolkit/object"
 import globals from "globals"
 
-import type { Options } from "./model.ts"
-
 import { configPerfectionist } from "./config.perfectionist.ts"
 import { configReact } from "./config.react.ts"
 import { configTailwindcss } from "./config.tailwindcss.ts"
 import { configVitest } from "./config.vitest.ts"
+import { defaultOptions, defaultOptionsAll } from "./model.ts"
 import { rulesEslint } from "./rules.eslint.ts"
 import { rulesImport } from "./rules.import.ts"
 import { rulesJsdoc } from "./rules.jsdoc.ts"
@@ -18,19 +17,9 @@ import { rulesPromise } from "./rules.promise.ts"
 import { rulesTypescript } from "./rules.typescript.ts"
 import { rulesUnicorn } from "./rules.unicorn.ts"
 
-const defaultOptions = {}
-
-const defaultParsedOptions: Required<Options> = {
-  react: false,
-  tailwindcss: false,
-  vitest: false,
-
-  jsPlugins: [],
-  overrides: [],
-}
-
-function oxlintConfig(options = defaultOptions): OxlintConfig {
-  const parsedOptions = { ...defaultParsedOptions, ...options }
+// oxlint-disable-next-line typescript/explicit-module-boundary-types -- If this is typed as returning OxlintConfig then consumers believe all keys are optional whereas by not typing it then consumers know, for example, that "jsPlugins" is always available. As we're returning the `defineConfig` from Oxlint, the type is guaranteed to be correct. What we need is "satisfies for return types": https://github.com/microsoft/TypeScript/issues/59577
+function oxlintConfig(options = defaultOptions) {
+  const parsedOptions = { ...defaultOptionsAll, ...options }
 
   const perfectionist = configPerfectionist(parsedOptions)
   const react = configReact(parsedOptions)
@@ -111,6 +100,7 @@ function oxlintConfig(options = defaultOptions): OxlintConfig {
       "typescript",
       "unicorn",
       ...react.plugins,
+      ...vitest.plugins,
     ],
     rules: {
       ...rulesEslint,
@@ -128,7 +118,7 @@ function oxlintConfig(options = defaultOptions): OxlintConfig {
     settings: {
       ...tailwindcss.settings,
     },
-  }
+  } satisfies OxlintConfig
 }
 
 export { oxlintConfig }

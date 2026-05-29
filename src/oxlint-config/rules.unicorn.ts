@@ -23,6 +23,8 @@ const rulesUnicorn: Record<string, DummyRule> = {
       },
     },
   ],
+  // Not sure if this is useful yet.
+  "unicorn/import-style": "off",
   "unicorn/new-for-builtins": "error",
   "unicorn/no-abusive-eslint-disable": "error",
   "unicorn/no-accessor-recursion": "error",

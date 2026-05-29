@@ -11,4 +11,19 @@ type Options = {
   overrides?: OxlintOverride[]
 }
 
+const defaultOptions = {}
+
+const defaultPlugins = {
+  react: false,
+  tailwindcss: false,
+  vitest: false,
+}
+
+const defaultOptionsAll: Required<Options> = {
+  ...defaultPlugins,
+  jsPlugins: [],
+  overrides: [],
+}
+
 export type { Options }
+export { defaultOptions, defaultOptionsAll, defaultPlugins }

@@ -1,13 +1,14 @@
-import type { OxlintOverride } from "oxlint"
+import type { OxlintConfig, OxlintOverride } from "oxlint"
 
 import type { Options } from "./model.ts"
 
 type Config = {
   overrides: OxlintOverride[]
+  plugins: NonNullable<OxlintConfig["plugins"]>
 }
 
 function configVitest(options: Options): Config {
-  if (!options.vitest) return { overrides: [] }
+  if (!options.vitest) return { overrides: [], plugins: [] }
 
   return {
     overrides: [
@@ -15,7 +16,6 @@ function configVitest(options: Options): Config {
         // @ts-expect-error -- this is here but undocumented: https://github.com/oxc-project/oxc/issues/15932#issuecomment-4471925336
         excludeFiles: ["**/*.jest.{spec,test}.{js,cjs,mjs,jsx,ts,tsx}"],
         files: ["**/*.{spec,test}.{js,cjs,mjs,jsx,ts,tsx}"],
-        plugins: ["vitest"],
         rules: {
           // We often spy-on and test the output of console.
           "no-console": "off",
@@ -115,6 +115,7 @@ function configVitest(options: Options): Config {
         },
       },
     ],
+    plugins: ["vitest"],
   }
 }
 

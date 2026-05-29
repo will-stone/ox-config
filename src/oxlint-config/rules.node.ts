@@ -1,6 +1,7 @@
 import type { DummyRule } from "oxlint"
 
 const rulesNode: Record<string, DummyRule> = {
+  "node/callback-return": "error",
   "node/global-require": "error",
   "node/handle-callback-err": "error",
   "node/no-exports-assign": "error",

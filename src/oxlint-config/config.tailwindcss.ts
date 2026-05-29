@@ -14,26 +14,26 @@ function configTailwindcss(options: Options): Config {
   const settings = options.tailwindcss === true ? {} : options.tailwindcss
 
   return {
-    jsPlugins: [{ name: "tailwindcss", specifier: "eslint-plugin-better-tailwindcss" }],
+    jsPlugins: ["eslint-plugin-better-tailwindcss"],
     rules: {
       // Only supports Tailwind v4.
-      "tailwindcss/enforce-canonical-classes": "off",
-      "tailwindcss/enforce-consistent-class-order": "error",
-      "tailwindcss/enforce-consistent-important-position": "error",
+      "better-tailwindcss/enforce-canonical-classes": "off",
+      "better-tailwindcss/enforce-consistent-class-order": "error",
+      "better-tailwindcss/enforce-consistent-important-position": "error",
       // We don't currently line wrap as it adds template literals everywhere.
-      "tailwindcss/enforce-consistent-line-wrapping": "off",
-      "tailwindcss/enforce-consistent-variable-syntax": "error",
+      "better-tailwindcss/enforce-consistent-line-wrapping": "off",
+      "better-tailwindcss/enforce-consistent-variable-syntax": "error",
       // Only supports Tailwind v4.
-      "tailwindcss/enforce-consistent-variant-order": "off",
+      "better-tailwindcss/enforce-consistent-variant-order": "off",
       // This is for supporting RTL languages.
-      "tailwindcss/enforce-logical-properties": "off",
-      "tailwindcss/enforce-shorthand-classes": "error",
+      "better-tailwindcss/enforce-logical-properties": "off",
+      "better-tailwindcss/enforce-shorthand-classes": "error",
       // Only supports Tailwind v4.
-      "tailwindcss/no-conflicting-classes": "off",
+      "better-tailwindcss/no-conflicting-classes": "off",
       // Only supports Tailwind v4.
-      "tailwindcss/no-deprecated-classes": "off",
-      "tailwindcss/no-duplicate-classes": "error",
-      "tailwindcss/no-restricted-classes": [
+      "better-tailwindcss/no-deprecated-classes": "off",
+      "better-tailwindcss/no-duplicate-classes": "error",
+      "better-tailwindcss/no-restricted-classes": [
         "error",
         {
           restrict: [
@@ -48,8 +48,8 @@ function configTailwindcss(options: Options): Config {
           ],
         },
       ],
-      "tailwindcss/no-unknown-classes": "error",
-      "tailwindcss/no-unnecessary-whitespace": "error",
+      "better-tailwindcss/no-unknown-classes": "error",
+      "better-tailwindcss/no-unnecessary-whitespace": "error",
     },
     settings: {
       "better-tailwindcss": {
