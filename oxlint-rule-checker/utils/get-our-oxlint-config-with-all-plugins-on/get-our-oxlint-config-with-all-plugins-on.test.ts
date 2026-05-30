@@ -11,9 +11,7 @@ test("should turn on all plugins", () => {
   getOurOxlintConfigWithAllPluginsOn()
 
   expect(oxlintConfigSpy).toHaveBeenCalledWith({
-    nextjs: true,
     react: true,
-    storybook: true,
     tailwindcss: true,
     vitest: true,
   })

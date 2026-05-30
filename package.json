@@ -30,7 +30,8 @@
     "format": "oxfmt",
     "prepublishOnly": "pnpm run build",
     "prepare": "husky",
-    "oxlint-inspector": "node ./oxlint-rule-checker/oxlint-rule-checker.ts"
+    "oxlint-inspector": "node ./oxlint-rule-checker/oxlint-rule-checker.ts",
+    "test": "vitest"
   },
   "dependencies": {
     "@types/confusing-browser-globals": "^1.0.3",
