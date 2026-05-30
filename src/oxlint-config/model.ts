@@ -3,7 +3,7 @@ import type { OxlintConfig, OxlintOverride } from "oxlint"
 type Options = {
   // Enable or tweak plugins.
   react?: boolean
-  tailwindcss?: boolean | { cwd?: string }
+  tailwindcss?: boolean | { config?: string }
   vitest?: boolean
 
   // Add custom rules:

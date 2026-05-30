@@ -1,6 +1,8 @@
 import type { OxfmtConfig } from "oxfmt"
 
-const oxfmtConfig = (): OxfmtConfig => ({
+import type { Options } from "./model.ts"
+
+const oxfmtConfig = (options?: Options): OxfmtConfig => ({
   /**
    * Wraps prose if it exceeds the print width.
    * @see https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#prosewrap
@@ -39,6 +41,18 @@ const oxfmtConfig = (): OxfmtConfig => ({
       "unknown",
     ],
   },
+  ...(options?.tailwindcss
+    ? {
+        /**
+         * Sort Tailwind CSS classes.
+         * @see https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#sorttailwindcss
+         */
+        sortTailwindcss: {
+          config: typeof options.tailwindcss === "object" ? options.tailwindcss.config : undefined,
+          functions: ["clsx"],
+        },
+      }
+    : {}),
 })
 
 export { oxfmtConfig }

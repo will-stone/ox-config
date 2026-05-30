@@ -18,7 +18,8 @@ function configTailwindcss(options: Options): Config {
     rules: {
       // Only supports Tailwind v4.
       "better-tailwindcss/enforce-canonical-classes": "off",
-      "better-tailwindcss/enforce-consistent-class-order": "error",
+      // Handled by oxfmt.sortTailwindcss.
+      "better-tailwindcss/enforce-consistent-class-order": "off",
       "better-tailwindcss/enforce-consistent-important-position": "error",
       // We don't currently line wrap as it adds template literals everywhere.
       "better-tailwindcss/enforce-consistent-line-wrapping": "off",
@@ -32,7 +33,8 @@ function configTailwindcss(options: Options): Config {
       "better-tailwindcss/no-conflicting-classes": "off",
       // Only supports Tailwind v4.
       "better-tailwindcss/no-deprecated-classes": "off",
-      "better-tailwindcss/no-duplicate-classes": "error",
+      // Handled by oxfmt.sortTailwindcss.
+      "better-tailwindcss/no-duplicate-classes": "off",
       "better-tailwindcss/no-restricted-classes": [
         "error",
         {
@@ -49,11 +51,12 @@ function configTailwindcss(options: Options): Config {
         },
       ],
       "better-tailwindcss/no-unknown-classes": "error",
-      "better-tailwindcss/no-unnecessary-whitespace": "error",
+      // Handled by oxfmt.sortTailwindcss.
+      "better-tailwindcss/no-unnecessary-whitespace": "off",
     },
     settings: {
       "better-tailwindcss": {
-        cwd: settings.cwd,
+        tailwindConfig: settings.config,
       },
     },
   }
