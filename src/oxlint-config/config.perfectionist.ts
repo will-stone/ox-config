@@ -64,7 +64,8 @@ function configPerfectionist(_options: Options): Config {
       "perfectionist/sort-exports": ["error", { type: "natural" }],
       "perfectionist/sort-heritage-clauses": "off",
       "perfectionist/sort-import-attributes": ["error", { type: "natural" }],
-      "perfectionist/sort-imports": ["error", { type: "natural" }],
+      // This is covered by oxfmt.sortImports
+      "perfectionist/sort-imports": "off",
       "perfectionist/sort-interfaces": "off",
       "perfectionist/sort-intersection-types": "off",
       "perfectionist/sort-jsx-props": "off",

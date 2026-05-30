@@ -18,6 +18,27 @@ const oxfmtConfig = (): OxfmtConfig => ({
    * - Semicolons allow for multiple statements on one line which could impact readability.
    */
   semi: false,
+  /**
+   * Sort import statements.
+   * @see https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#sortimports
+   */
+  sortImports: {
+    groups: [
+      // Always put side effects first as it is usually required to load these
+      // before anything else. Note that `sortImports.sortSideEffects` is not
+      // enabled which means that side effects can be moved around in their
+      // group; in case the order of side effects matters.
+      ["side_effect", "side_effect_style"],
+      // Same as Perfectionist defaults: https://perfectionist.dev/rules/sort-imports#groups
+      "type-import",
+      ["value-builtin", "value-external"],
+      "type-internal",
+      "value-internal",
+      ["type-parent", "type-sibling", "type-index"],
+      ["value-parent", "value-sibling", "value-index"],
+      "unknown",
+    ],
+  },
 })
 
 export { oxfmtConfig }
