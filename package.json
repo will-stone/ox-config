@@ -24,6 +24,7 @@
     "access": "public"
   },
   "scripts": {
+    "typecheck": "tsc",
     "build": "tsdown",
     "lint": "oxlint --fix",
     "format": "oxfmt",
