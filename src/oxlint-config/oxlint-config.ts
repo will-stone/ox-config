@@ -18,7 +18,7 @@ import { rulesTypescript } from "./rules.typescript.ts"
 import { rulesUnicorn } from "./rules.unicorn.ts"
 
 // oxlint-disable-next-line typescript/explicit-module-boundary-types -- If this is typed as returning OxlintConfig then consumers believe all keys are optional whereas by not typing it then consumers know, for example, that "jsPlugins" is always available. As we're returning the `defineConfig` from Oxlint, the type is guaranteed to be correct. What we need is "satisfies for return types": https://github.com/microsoft/TypeScript/issues/59577
-function oxlintConfig(options = defaultOptions) {
+export function oxlintConfig(options = defaultOptions) {
   const parsedOptions = { ...defaultOptionsAll, ...options }
 
   const perfectionist = configPerfectionist(parsedOptions)
@@ -120,5 +120,3 @@ function oxlintConfig(options = defaultOptions) {
     },
   } satisfies OxlintConfig
 }
-
-export { oxlintConfig }

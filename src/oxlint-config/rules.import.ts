@@ -1,13 +1,13 @@
 import type { DummyRule } from "oxlint"
 
-const rulesImport: Record<string, DummyRule> = {
+export const rulesImport: Record<string, DummyRule> = {
   "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
   "import/default": "error",
   "import/export": "error",
-  "import/exports-last": "error",
+  "import/exports-last": "off",
   "import/extensions": "off",
   "import/first": "error",
-  "import/group-exports": "error",
+  "import/group-exports": "off",
   "import/max-dependencies": "off",
   "import/named": "error",
   "import/namespace": "error",
@@ -35,5 +35,3 @@ const rulesImport: Record<string, DummyRule> = {
   "import/prefer-default-export": "off",
   "import/unambiguous": "off",
 }
-
-export { rulesImport }

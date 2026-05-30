@@ -1,6 +1,6 @@
 import type { DummyRule } from "oxlint"
 
-const rulesJsdoc: Record<string, DummyRule> = {
+export const rulesJsdoc: Record<string, DummyRule> = {
   "jsdoc/check-access": "off",
   "jsdoc/check-property-names": "off",
   "jsdoc/check-tag-names": ["error", { definedTags: ["jest-environment"], typed: false }],
@@ -24,5 +24,3 @@ const rulesJsdoc: Record<string, DummyRule> = {
   "jsdoc/require-yields": "error",
   "jsdoc/require-yields-type": "error",
 }
-
-export { rulesJsdoc }

@@ -1,6 +1,6 @@
 import type { DummyRule } from "oxlint"
 
-const rulesUnicorn: Record<string, DummyRule> = {
+export const rulesUnicorn: Record<string, DummyRule> = {
   "unicorn/catch-error-name": "error",
   "unicorn/consistent-assert": "error",
   "unicorn/consistent-date-clone": "error",
@@ -146,5 +146,3 @@ const rulesUnicorn: Record<string, DummyRule> = {
   "unicorn/text-encoding-identifier-case": "error",
   "unicorn/throw-new-error": "error",
 }
-
-export { rulesUnicorn }

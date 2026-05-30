@@ -13,9 +13,9 @@ const allRulesPath = path.join(tempDir, "all-rules.json")
 const dummyOxlintConfigPath = path.join(tempDir, "dummy-oxlint.config.ts")
 
 // These plugins don't need flags to be enabled.
-const defaultPlugins = new Set(["eslint", "oxc", "typescript", "unicorn"])
+export const alwaysOnPlugins = new Set(["eslint", "oxc", "typescript", "unicorn"])
 
-async function getAllBuiltInRules(
+export async function getAllBuiltInRulesNames(
   ourOxlintConfig: ReturnType<typeof oxlintConfig>,
 ): Promise<string[]> {
   if (fs.existsSync(tempDir)) {
@@ -30,7 +30,7 @@ async function getAllBuiltInRules(
   )
 
   const pluginsFlags = ourOxlintConfig.plugins
-    .filter((plugin) => !defaultPlugins.has(plugin))
+    .filter((plugin) => !alwaysOnPlugins.has(plugin))
     .map((plugin) => `--${plugin}-plugin`)
     .join(" ")
 
@@ -47,5 +47,3 @@ async function getAllBuiltInRules(
 
   return allOxlintRules
 }
-
-export { defaultPlugins as alwaysOnPlugins, getAllBuiltInRules }

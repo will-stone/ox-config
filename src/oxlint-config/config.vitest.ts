@@ -7,7 +7,7 @@ type Config = {
   plugins: NonNullable<OxlintConfig["plugins"]>
 }
 
-function configVitest(options: Options): Config {
+export function configVitest(options: Options): Config {
   if (!options.vitest) return { overrides: [], plugins: [] }
 
   return {
@@ -118,5 +118,3 @@ function configVitest(options: Options): Config {
     plugins: ["vitest"],
   }
 }
-
-export { configVitest }

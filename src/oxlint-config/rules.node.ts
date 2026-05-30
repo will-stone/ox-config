@@ -1,6 +1,6 @@
 import type { DummyRule } from "oxlint"
 
-const rulesNode: Record<string, DummyRule> = {
+export const rulesNode: Record<string, DummyRule> = {
   "node/callback-return": "error",
   "node/global-require": "error",
   "node/handle-callback-err": "error",
@@ -9,5 +9,3 @@ const rulesNode: Record<string, DummyRule> = {
   "node/no-path-concat": "error",
   "node/no-process-env": "off",
 }
-
-export { rulesNode }

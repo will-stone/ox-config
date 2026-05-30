@@ -2,7 +2,7 @@ import type { DummyRule } from "oxlint"
 
 import restrictedGlobals from "confusing-browser-globals"
 
-const rulesEslint: Record<string, DummyRule> = {
+export const rulesEslint: Record<string, DummyRule> = {
   "accessor-pairs": "error",
   "array-callback-return": [
     "error",
@@ -239,5 +239,3 @@ const rulesEslint: Record<string, DummyRule> = {
   "vars-on-top": "error",
   yoda: "error",
 }
-
-export { rulesEslint }

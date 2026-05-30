@@ -2,7 +2,7 @@ import type { oxlintConfig } from "../../../src/index.ts"
 
 import { interopDefault } from "../interop-default/interop-default.ts"
 
-async function getAllJsPluginsRules(
+export async function getAllJsPluginsRules(
   ourOxlintConfig: ReturnType<typeof oxlintConfig>,
 ): Promise<string[]> {
   const allJsPluginsRules: string[] = []
@@ -23,5 +23,3 @@ async function getAllJsPluginsRules(
 
   return allJsPluginsRules
 }
-
-export { getAllJsPluginsRules }

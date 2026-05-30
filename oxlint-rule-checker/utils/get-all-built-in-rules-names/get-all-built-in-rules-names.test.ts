@@ -3,9 +3,9 @@ import { expect, test } from "vitest"
 
 import type { oxlintConfig } from "../../../src/index.ts"
 
-import { alwaysOnPlugins, getAllBuiltInRules } from "./get-all-built-in-rules.ts"
+import { alwaysOnPlugins, getAllBuiltInRulesNames } from "./get-all-built-in-rules-names.ts"
 
-const allAvailableBuiltInRules = await getAllBuiltInRules({
+const allAvailableBuiltInRules = await getAllBuiltInRulesNames({
   plugins: ["import", "promise"],
 } as unknown as ReturnType<typeof oxlintConfig>)
 

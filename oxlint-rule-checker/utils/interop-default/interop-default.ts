@@ -24,7 +24,7 @@ type Awaitable<T> = T | Promise<T>
  * // module.exports = foo
  * const foo = await interopDefault(import('module-name'))
  */
-async function interopDefault<T>(
+export async function interopDefault<T>(
   module: Awaitable<T>,
 ): Promise<T extends { default: infer U } ? U : T> {
   const resolved = await module
@@ -32,5 +32,3 @@ async function interopDefault<T>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (resolved as any).default || resolved
 }
-
-export { interopDefault }

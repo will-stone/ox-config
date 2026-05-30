@@ -49,7 +49,7 @@ type Config = {
   rules: Record<string, DummyRule>
 }
 
-function configPerfectionist(_options: Options): Config {
+export function configPerfectionist(_options: Options): Config {
   return {
     jsPlugins: ["eslint-plugin-perfectionist"],
     rules: {
@@ -82,5 +82,3 @@ function configPerfectionist(_options: Options): Config {
     },
   }
 }
-
-export { configPerfectionist }

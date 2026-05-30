@@ -1,6 +1,6 @@
 import type { DummyRule } from "oxlint"
 
-const rulesOxc: Record<string, DummyRule> = {
+export const rulesOxc: Record<string, DummyRule> = {
   "oxc/approx-constant": "error",
   "oxc/bad-array-method-on-arguments": "error",
   "oxc/bad-bitwise-operator": "error",
@@ -28,5 +28,3 @@ const rulesOxc: Record<string, DummyRule> = {
   "oxc/only-used-in-recursion": "error",
   "oxc/uninvoked-array-callback": "error",
 }
-
-export { rulesOxc }

@@ -1,6 +1,6 @@
 import type { OxlintConfig, OxlintOverride } from "oxlint"
 
-type Options = {
+export type Options = {
   // Enable or tweak plugins.
   react?: boolean
   tailwindcss?: boolean | { config?: string }
@@ -11,19 +11,16 @@ type Options = {
   overrides?: OxlintOverride[]
 }
 
-const defaultOptions = {}
+export const defaultOptions = {}
 
-const defaultPlugins = {
+export const defaultPlugins = {
   react: false,
   tailwindcss: false,
   vitest: false,
 }
 
-const defaultOptionsAll: Required<Options> = {
+export const defaultOptionsAll: Required<Options> = {
   ...defaultPlugins,
   jsPlugins: [],
   overrides: [],
 }
-
-export type { Options }
-export { defaultOptions, defaultOptionsAll, defaultPlugins }

@@ -8,7 +8,7 @@ type Config = {
   settings: Record<string, unknown>
 }
 
-function configTailwindcss(options: Options): Config {
+export function configTailwindcss(options: Options): Config {
   if (!options.tailwindcss) return { jsPlugins: [], rules: {}, settings: {} }
 
   const settings = options.tailwindcss === true ? {} : options.tailwindcss
@@ -61,5 +61,3 @@ function configTailwindcss(options: Options): Config {
     },
   }
 }
-
-export { configTailwindcss }

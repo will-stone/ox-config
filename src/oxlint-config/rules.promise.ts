@@ -1,6 +1,6 @@
 import type { DummyRule } from "oxlint"
 
-const rulesPromise: Record<string, DummyRule> = {
+export const rulesPromise: Record<string, DummyRule> = {
   "promise/always-return": "error",
   "promise/avoid-new": "error",
   "promise/catch-or-return": "error",
@@ -18,5 +18,3 @@ const rulesPromise: Record<string, DummyRule> = {
   "promise/spec-only": "error",
   "promise/valid-params": "error",
 }
-
-export { rulesPromise }

@@ -9,7 +9,7 @@ type Config = {
   rules: Record<string, DummyRule>
 }
 
-function configReact(options: Options): Config {
+export function configReact(options: Options): Config {
   if (!options.react) return { jsPlugins: [], overrides: [], plugins: [], rules: {} }
 
   return {
@@ -295,5 +295,3 @@ function configReact(options: Options): Config {
     },
   }
 }
-
-export { configReact }

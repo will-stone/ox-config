@@ -1,15 +1,20 @@
+import type { DummyRule } from "oxlint"
+
 import { difference } from "es-toolkit/array"
 
-function makeComparison(activeRules: string[], availableRules: string[]): string {
-  const unknownRulesInUse = difference(activeRules, availableRules)
-  const unsupportedRules = difference(availableRules, activeRules)
+export function makeComparison(
+  activeRules: [string, DummyRule | undefined][],
+  availableRules: string[],
+): string {
+  const activeRulesNames = activeRules.map(([name]) => name)
+  const unknownRulesInUse = difference(activeRulesNames, availableRules)
+  const unsupportedRules = difference(availableRules, activeRulesNames)
 
   if (!unknownRulesInUse.length && !unsupportedRules.length) {
     return "✅ All rules covered"
   }
 
-  // oxlint-disable-next-line prefer-const
-  let sections: string[][] = []
+  const sections: string[][] = []
 
   if (unknownRulesInUse.length) {
     sections.push(["⁉️ Unknown rules in use:"])
@@ -29,5 +34,3 @@ function makeComparison(activeRules: string[], availableRules: string[]): string
 
   return sections.map((lines) => lines.join("\n")).join("\n\n")
 }
-
-export { makeComparison }

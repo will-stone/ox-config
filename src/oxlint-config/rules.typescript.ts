@@ -1,6 +1,6 @@
 import type { DummyRule } from "oxlint"
 
-const rulesTypescript: Record<string, DummyRule> = {
+export const rulesTypescript: Record<string, DummyRule> = {
   "typescript/adjacent-overload-signatures": "off",
   "typescript/array-type": ["error", { default: "array" }],
   "typescript/await-thenable": "off",
@@ -111,5 +111,3 @@ const rulesTypescript: Record<string, DummyRule> = {
   "typescript/unified-signatures": "error",
   "typescript/use-unknown-in-catch-callback-variable": "off",
 }
-
-export { rulesTypescript }
