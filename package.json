@@ -26,6 +26,7 @@
   "scripts": {
     "typecheck": "tsc",
     "build": "tsdown",
+    "postbuild": "publint",
     "lint": "oxlint --fix",
     "format": "oxfmt",
     "prepublishOnly": "pnpm run build",
@@ -46,6 +47,7 @@
     "@types/node": "^24",
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
+    "publint": "^0.3.21",
     "tsdown": "^0.22.0",
     "typescript": "^6.0.3",
     "valibot": "^1.4.1",
@@ -63,5 +65,5 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@11.5.0"
+  "packageManager": "pnpm@11.5.1"
 }
