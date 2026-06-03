@@ -1,16 +1,16 @@
 {
   "name": "ox-config",
-  "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
-  "homepage": "https://github.com/author/library#readme",
+  "private": true,
+  "description": "My configs for Oxc tooling",
+  "homepage": "https://github.com/will-stone/ox-config#readme",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/will-stone/ox-config/issues"
   },
   "license": "MIT",
-  "author": "Author Name <author.name@mail.com>",
+  "author": "Will Stone",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/will-stone/ox-config.git"
   },
   "files": [
     "dist"
@@ -24,22 +24,14 @@
     "access": "public"
   },
   "scripts": {
-    "typecheck": "tsc",
-    "build": "tsdown",
-    "postbuild": "publint",
-    "lint": "oxlint --fix",
-    "format": "oxfmt",
-    "prepublishOnly": "pnpm run build",
+    "lint": "oxlint",
+    "build": "pnpm run build --if-present",
     "prepare": "husky",
     "oxlint-inspector": "node ./oxlint-rule-checker/oxlint-rule-checker.ts",
     "test": "vitest"
   },
   "dependencies": {
-    "@types/confusing-browser-globals": "^1.0.3",
-    "confusing-browser-globals": "^1.0.11",
     "es-toolkit": "^1.47.0",
-    "eslint-plugin-perfectionist": "^5.9.0",
-    "globals": "^17.6.0",
     "oxfmt": "^0.52.0",
     "oxlint": "^1.67.0"
   },
@@ -53,17 +45,14 @@
     "valibot": "^1.4.1",
     "vitest": "^4.1.7"
   },
-  "peerDependencies": {
-    "eslint-plugin-better-tailwindcss": "^4.5.0",
-    "eslint-plugin-react-x": "^5.8.1"
-  },
-  "peerDependenciesMeta": {
-    "eslint-plugin-react-x": {
-      "optional": true
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.5.1"
     },
-    "eslint-plugin-tailwindcss": {
-      "optional": true
+    "runtime": {
+      "name": "node",
+      "version": "24"
     }
-  },
-  "packageManager": "pnpm@11.5.1"
+  }
 }

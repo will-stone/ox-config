@@ -1,4 +1,4 @@
-import type { oxlintConfig } from "../../../src/index.ts"
+import type oxlintConfig from "../../../packages/oxlint/src/index.ts"
 
 import { interopDefault } from "../interop-default/interop-default.ts"
 

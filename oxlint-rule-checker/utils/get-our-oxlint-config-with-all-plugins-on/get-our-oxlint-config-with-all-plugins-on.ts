@@ -1,8 +1,6 @@
-import { mapValues } from "es-toolkit/object"
-
-import { oxlintConfig } from "../../../src/index.ts"
-import { defaultPlugins } from "../../../src/oxlint-config/model.ts"
+import reactPlugin from "../../../packages/oxlint-plugin-react/src/index.ts"
+import oxlintConfig from "../../../packages/oxlint/src/index.ts"
 
 export function getOurOxlintConfigWithAllPluginsOn(): ReturnType<typeof oxlintConfig> {
-  return oxlintConfig(mapValues(defaultPlugins, () => true))
+  return oxlintConfig({ plugins: [reactPlugin()] })
 }

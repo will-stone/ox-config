@@ -1,6 +1,6 @@
 import { expect, test } from "vitest"
 
-import type * as OxlintConfig from "../../../src/oxlint-config/oxlint-config.ts"
+import type * as OxlintConfig from "../../../packages/oxlint/src/index.ts"
 
 import { getAllActiveRules } from "./get-all-active-rules.ts"
 

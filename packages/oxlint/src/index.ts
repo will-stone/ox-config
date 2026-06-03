@@ -1,30 +1,39 @@
-import type { OxlintConfig } from "oxlint"
+import type { DummyRule, ExternalPluginEntry, OxlintConfig, OxlintOverride } from "oxlint"
 
 import { mapValues } from "es-toolkit/object"
 import globals from "globals"
 
-import { configPerfectionist } from "./config.perfectionist.ts"
-import { configReact } from "./config.react.ts"
-import { configTailwindcss } from "./config.tailwindcss.ts"
-import { configVitest } from "./config.vitest.ts"
-import { defaultOptions, defaultOptionsAll } from "./model.ts"
+import type { Plugin } from "../../_shared/model.ts"
+
+import { vitestOverrides } from "./overrides.vitest.ts"
 import { rulesEslint } from "./rules.eslint.ts"
 import { rulesImport } from "./rules.import.ts"
 import { rulesJsdoc } from "./rules.jsdoc.ts"
 import { rulesNode } from "./rules.node.ts"
 import { rulesOxc } from "./rules.oxc.ts"
+import { rulesPerfectionist } from "./rules.perfectionist.ts"
 import { rulesPromise } from "./rules.promise.ts"
 import { rulesTypescript } from "./rules.typescript.ts"
 import { rulesUnicorn } from "./rules.unicorn.ts"
 
-// oxlint-disable-next-line typescript/explicit-module-boundary-types -- If this is typed as returning OxlintConfig then consumers believe all keys are optional whereas by not typing it then consumers know, for example, that "jsPlugins" is always available. As we're returning the `defineConfig` from Oxlint, the type is guaranteed to be correct. What we need is "satisfies for return types": https://github.com/microsoft/TypeScript/issues/59577
-export function oxlintConfig(options = defaultOptions) {
-  const parsedOptions = { ...defaultOptionsAll, ...options }
+type Options = {
+  plugins: Plugin[]
+}
 
-  const perfectionist = configPerfectionist(parsedOptions)
-  const react = configReact(parsedOptions)
-  const tailwindcss = configTailwindcss(parsedOptions)
-  const vitest = configVitest(parsedOptions)
+export default function oxlintConfig(options?: Options): OxlintConfig {
+  const jsPlugins: ExternalPluginEntry[] = []
+  const overrides: OxlintOverride[] = []
+  const extraPlugins: NonNullable<OxlintConfig["plugins"]> = []
+  const rules: Record<string, DummyRule> = {}
+  const settings: Record<string, unknown> = {}
+
+  for (const plugin of options?.plugins || []) {
+    jsPlugins.push(...plugin.jsPlugins)
+    overrides.push(...plugin.overrides)
+    extraPlugins.push(...plugin.plugins)
+    Object.assign(rules, plugin.rules)
+    Object.assign(settings, plugin.settings)
+  }
 
   return {
     categories: {
@@ -77,19 +86,12 @@ export function oxlintConfig(options = defaultOptions) {
       "**/tsconfig.vitest-temp.json",
       "dependency-check-report.html",
     ],
-    jsPlugins: [
-      ...perfectionist.jsPlugins,
-      ...react.jsPlugins,
-      ...tailwindcss.jsPlugins,
-      ...parsedOptions.jsPlugins,
-    ],
+    jsPlugins: ["eslint-plugin-perfectionist", ...jsPlugins],
     options: {
       reportUnusedDisableDirectives: "error",
       respectEslintDisableDirectives: true,
-      typeAware: true,
-      typeCheck: true,
     },
-    overrides: [...react.overrides, ...vitest.overrides, ...parsedOptions.overrides],
+    overrides: [vitestOverrides, ...overrides],
     plugins: [
       "eslint",
       "import",
@@ -99,8 +101,8 @@ export function oxlintConfig(options = defaultOptions) {
       "promise",
       "typescript",
       "unicorn",
-      ...react.plugins,
-      ...vitest.plugins,
+      "vitest",
+      ...extraPlugins,
     ],
     rules: {
       ...rulesEslint,
@@ -108,15 +110,12 @@ export function oxlintConfig(options = defaultOptions) {
       ...rulesJsdoc,
       ...rulesNode,
       ...rulesOxc,
-      ...perfectionist.rules,
+      ...rulesPerfectionist,
       ...rulesPromise,
-      ...react.rules,
-      ...tailwindcss.rules,
       ...rulesTypescript,
       ...rulesUnicorn,
+      ...rules,
     },
-    settings: {
-      ...tailwindcss.settings,
-    },
+    settings,
   } satisfies OxlintConfig
 }

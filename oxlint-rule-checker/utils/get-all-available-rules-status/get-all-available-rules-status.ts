@@ -16,7 +16,7 @@ const Schema = v.array(
 export type AllAvailableRulesStatus = v.InferInput<typeof Schema>
 
 export function getAllAvailableRulesStatus(): AllAvailableRulesStatus {
-  const unparsed = JSON.parse(execSync(`npm exec --no -- oxlint --rules --format json`).toString())
+  const unparsed = JSON.parse(execSync(`pnpm exec oxlint --rules --format json`).toString())
 
   return v.parse(Schema, unparsed)
 }

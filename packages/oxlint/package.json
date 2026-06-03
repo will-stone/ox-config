@@ -1,0 +1,38 @@
+{
+  "name": "@will-stone/oxlint-config",
+  "version": "0.0.0",
+  "private": false,
+  "description": "My Oxlint config",
+  "homepage": "https://github.com/will-stone/ox-config",
+  "bugs": {
+    "url": "https://github.com/will-stone/ox-config/issues"
+  },
+  "license": "MIT",
+  "author": "Will Stone",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/will-stone/ox-config.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": "./dist/index.mjs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown --publint"
+  },
+  "dependencies": {
+    "@types/confusing-browser-globals": "^1.0.3",
+    "confusing-browser-globals": "^1.0.11",
+    "es-toolkit": "^1.47.0",
+    "eslint-plugin-perfectionist": "^5.9.0",
+    "globals": "^17.6.0"
+  },
+  "peerDependencies": {
+    "oxlint": "^1.67.0"
+  }
+}

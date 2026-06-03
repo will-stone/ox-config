@@ -2,7 +2,7 @@ import { execSync } from "node:child_process"
 import fs from "node:fs"
 import path from "node:path"
 
-import type { oxlintConfig } from "../../../src/index.ts"
+import type oxlintConfig from "../../../packages/oxlint/src/index.ts"
 
 // Temporary directory for the files needed to test against.
 const tempDir = path.join(import.meta.dirname, ".tmp")
@@ -29,13 +29,13 @@ export async function getAllBuiltInRulesNames(
     'import { defineConfig } from "oxlint"; export default defineConfig({});',
   )
 
-  const pluginsFlags = ourOxlintConfig.plugins
+  const pluginsFlags = (ourOxlintConfig?.plugins || [])
     .filter((plugin) => !alwaysOnPlugins.has(plugin))
     .map((plugin) => `--${plugin}-plugin`)
     .join(" ")
 
   execSync(
-    `npm exec --no -- oxlint -D all -D nursery --print-config ${pluginsFlags} --config ${dummyOxlintConfigPath} > ${allRulesPath}`,
+    `pnpm exec oxlint -D all -D nursery --print-config ${pluginsFlags} --config ${dummyOxlintConfigPath} > ${allRulesPath}`,
     { stdio: "inherit" },
   )
 
