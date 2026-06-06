@@ -1,6 +1,6 @@
 import type { DummyRule, ExternalPluginEntry, OxlintConfig, OxlintOverride } from 'oxlint'
 
-export type Plugin = {
+export type Ruleset = {
   jsPlugins: ExternalPluginEntry[]
   overrides: OxlintOverride[]
   plugins: NonNullable<OxlintConfig['plugins']>
@@ -9,5 +9,5 @@ export type Plugin = {
 }
 
 export type Options = {
-  plugins: Plugin[]
+  rulesets: Ruleset[]
 }

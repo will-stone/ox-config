@@ -1,6 +1,6 @@
-import type { Plugin } from '../../_shared/model.ts'
+import type { Ruleset } from '../../_shared/model.ts'
 
-const reactPlugin = (): Plugin => ({
+const reactRuleset = (): Ruleset => ({
   jsPlugins: ['eslint-plugin-react-x'],
   overrides: [
     {
@@ -284,4 +284,4 @@ const reactPlugin = (): Plugin => ({
   settings: {},
 })
 
-export default reactPlugin
+export default reactRuleset

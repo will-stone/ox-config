@@ -1,6 +1,6 @@
 import type { DummyRule } from 'oxlint'
 
-import type { oxlintConfig } from '../../../src/index.ts'
+import type oxlintConfig from '../../../packages/oxlint/src/index.ts'
 
 export function getAllActiveRules(
   ourOxlintConfig: ReturnType<typeof oxlintConfig>,

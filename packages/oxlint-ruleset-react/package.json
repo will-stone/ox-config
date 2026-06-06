@@ -1,8 +1,8 @@
 {
-  "name": "@will-stone/oxlint-plugin-react",
+  "name": "@will-stone/oxlint-ruleset-react",
   "version": "0.0.0",
   "private": false,
-  "description": "React plugin for my Oxlint config",
+  "description": "React rules for my Oxlint config",
   "homepage": "https://github.com/will-stone/ox-config",
   "bugs": {
     "url": "https://github.com/will-stone/ox-config/issues"

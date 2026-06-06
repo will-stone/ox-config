@@ -2,8 +2,9 @@ import type { DummyRule, ExternalPluginEntry, OxlintConfig, OxlintOverride } fro
 
 import { mapValues } from 'es-toolkit/object'
 import globals from 'globals'
+import { defineConfig } from 'oxlint'
 
-import type { Plugin } from '../../_shared/model.ts'
+import type { Ruleset } from '../../_shared/model.ts'
 
 import { vitestOverrides } from './overrides.vitest.ts'
 import { rulesEslint } from './rules.eslint.ts'
@@ -17,25 +18,26 @@ import { rulesTypescript } from './rules.typescript.ts'
 import { rulesUnicorn } from './rules.unicorn.ts'
 
 type Options = {
-  plugins: Plugin[]
+  rulesets: Ruleset[]
 }
 
-export default function oxlintConfig(options?: Options): OxlintConfig {
+// oxlint-disable-next-line typescript/explicit-module-boundary-types -- returning defineConfig so let TS infer the return type which is narrower than OxlintConfig.
+export default function oxlintConfig(options?: Options) {
   const jsPlugins: ExternalPluginEntry[] = []
   const overrides: OxlintOverride[] = []
-  const extraPlugins: NonNullable<OxlintConfig['plugins']> = []
+  const plugins: NonNullable<OxlintConfig['plugins']> = []
   const rules: Record<string, DummyRule> = {}
   const settings: Record<string, unknown> = {}
 
-  for (const plugin of options?.plugins || []) {
-    jsPlugins.push(...plugin.jsPlugins)
-    overrides.push(...plugin.overrides)
-    extraPlugins.push(...plugin.plugins)
-    Object.assign(rules, plugin.rules)
-    Object.assign(settings, plugin.settings)
+  for (const ruleset of options?.rulesets || []) {
+    jsPlugins.push(...ruleset.jsPlugins)
+    overrides.push(...ruleset.overrides)
+    plugins.push(...ruleset.plugins)
+    Object.assign(rules, ruleset.rules)
+    Object.assign(settings, ruleset.settings)
   }
 
-  return {
+  return defineConfig({
     categories: {
       // Oxlint groups rules by category but we set all rules explicitly.
       // However the "correctness" category is on by default. As a minor release
@@ -102,7 +104,7 @@ export default function oxlintConfig(options?: Options): OxlintConfig {
       'typescript',
       'unicorn',
       'vitest',
-      ...extraPlugins,
+      ...plugins,
     ],
     rules: {
       ...rulesEslint,
@@ -117,5 +119,5 @@ export default function oxlintConfig(options?: Options): OxlintConfig {
       ...rules,
     },
     settings,
-  } satisfies OxlintConfig
+  })
 }

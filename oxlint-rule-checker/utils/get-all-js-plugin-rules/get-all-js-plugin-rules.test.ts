@@ -1,7 +1,7 @@
 import { uniq } from 'es-toolkit/array'
 import { expect, test } from 'vitest'
 
-import type { oxlintConfig } from '../../../src/index.ts'
+import type oxlintConfig from '../../../packages/oxlint/src/index.ts'
 
 import { getAllJsPluginsRules } from './get-all-js-plugin-rules.ts'
 
@@ -9,7 +9,7 @@ test('should contain rules from all used JS plugins', async () => {
   const allJsPluginsRules = await getAllJsPluginsRules({
     jsPlugins: [
       'eslint-plugin-react-x',
-      { name: 'tailwindcss', specifier: 'eslint-plugin-better-tailwindcss' },
+      { name: 'perfectionist', specifier: 'eslint-plugin-perfectionist' },
     ],
   } as unknown as ReturnType<typeof oxlintConfig>)
 
@@ -17,5 +17,5 @@ test('should contain rules from all used JS plugins', async () => {
     allJsPluginsRules.filter((rule) => rule.includes('/')).map((rule) => rule.split('/')[0]),
   )
 
-  expect(allPlugins).toStrictEqual(['react-x', 'tailwindcss'])
+  expect(allPlugins).toStrictEqual(['react-x', 'perfectionist'])
 })

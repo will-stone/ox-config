@@ -13,7 +13,7 @@ test('should return all root and overrides rules', () => {
         },
       ],
       rules: { 'root-rule': 'off' },
-    } as unknown as ReturnType<typeof OxlintConfig.oxlintConfig>),
+    } as unknown as ReturnType<typeof OxlintConfig.default>),
   ).toStrictEqual([
     ['root-rule', 'off'],
     ['override-rule', 'error'],

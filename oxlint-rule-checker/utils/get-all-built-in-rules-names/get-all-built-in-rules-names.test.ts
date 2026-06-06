@@ -1,7 +1,7 @@
 import { uniq } from 'es-toolkit/array'
 import { expect, test } from 'vitest'
 
-import type { oxlintConfig } from '../../../src/index.ts'
+import type oxlintConfig from '../../../packages/oxlint/src/index.ts'
 
 import { alwaysOnPlugins, getAllBuiltInRulesNames } from './get-all-built-in-rules-names.ts'
 
