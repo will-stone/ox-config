@@ -26,9 +26,9 @@
     "build": "tsdown --publint"
   },
   "dependencies": {
-    "eslint-plugin-react-x": "^5.8.1"
+    "eslint-plugin-react-x": "catalog:"
   },
   "peerDependencies": {
-    "oxlint": "*"
+    "oxlint": "catalog:"
   }
 }

@@ -26,13 +26,13 @@
     "build": "tsdown --publint"
   },
   "dependencies": {
-    "@types/confusing-browser-globals": "^1.0.3",
-    "confusing-browser-globals": "^1.0.11",
-    "es-toolkit": "^1.47.0",
-    "eslint-plugin-perfectionist": "^5.9.0",
-    "globals": "^17.6.0"
+    "@types/confusing-browser-globals": "catalog:",
+    "confusing-browser-globals": "catalog:",
+    "es-toolkit": "catalog:",
+    "eslint-plugin-perfectionist": "catalog:",
+    "globals": "catalog:"
   },
   "peerDependencies": {
-    "oxlint": "^1.67.0"
+    "oxlint": "catalog:"
   }
 }

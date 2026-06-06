@@ -26,7 +26,7 @@
     "build": "tsdown --publint"
   },
   "peerDependencies": {
-    "oxfmt": "^0.52.0"
+    "oxfmt": "catalog:"
   },
   "engines": {
     "node": "^24"

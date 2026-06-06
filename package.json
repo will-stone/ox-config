@@ -31,19 +31,19 @@
     "test": "vitest"
   },
   "dependencies": {
-    "es-toolkit": "^1.47.0",
-    "oxfmt": "^0.52.0",
-    "oxlint": "^1.68.0"
+    "es-toolkit": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:"
   },
   "devDependencies": {
-    "@types/node": "^24.13.0",
-    "husky": "^9.1.7",
-    "nano-staged": "^1.0.2",
-    "publint": "^0.3.21",
-    "tsdown": "^0.22.2",
-    "typescript": "^6.0.3",
-    "valibot": "^1.4.1",
-    "vitest": "^4.1.8"
+    "@types/node": "catalog:",
+    "husky": "catalog:",
+    "nano-staged": "catalog:",
+    "publint": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "valibot": "catalog:",
+    "vitest": "catalog:"
   },
   "devEngines": {
     "packageManager": {
