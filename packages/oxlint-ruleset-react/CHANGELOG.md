@@ -1,1 +1,1 @@
-# @rsgroup/storefront-utils-oxlint-ruleset-react
+# @will-stone/oxlint-ruleset-react

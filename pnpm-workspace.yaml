@@ -11,6 +11,7 @@ catalog:
   es-toolkit: ^1.47.0
   eslint-plugin-perfectionist: ^5.9.0
   eslint-plugin-react-x: ^5.8.12
+  eslint-plugin-better-tailwindcss: ^4.5.0
   globals: ^17.6.0
   husky: ^9.1.7
   nano-staged: ^1.0.2
