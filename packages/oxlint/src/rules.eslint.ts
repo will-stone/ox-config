@@ -214,6 +214,7 @@ export const rulesEslint: Record<string, DummyRule> = {
     },
   ],
   "prefer-exponentiation-operator": "warn",
+  "prefer-named-capture-group": "off",
   "prefer-numeric-literals": "error",
   "prefer-object-has-own": "error",
   "prefer-object-spread": "warn",

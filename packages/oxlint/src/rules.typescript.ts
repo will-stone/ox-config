@@ -19,6 +19,7 @@ export const rulesTypescript: Record<string, DummyRule> = {
   "typescript/explicit-function-return-type": "off",
   "typescript/explicit-member-accessibility": "off",
   "typescript/explicit-module-boundary-types": "error",
+  "typescript/method-signature-style": "error",
   "typescript/no-array-delete": "off",
   "typescript/no-base-to-string": "off",
   "typescript/no-confusing-non-null-assertion": "error",

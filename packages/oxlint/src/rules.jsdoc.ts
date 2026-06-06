@@ -22,5 +22,6 @@ export const rulesJsdoc: Record<string, DummyRule> = {
   "jsdoc/require-throws-description": "error",
   "jsdoc/require-throws-type": "off",
   "jsdoc/require-yields": "error",
+  "jsdoc/require-yields-description": "error",
   "jsdoc/require-yields-type": "error",
 }
