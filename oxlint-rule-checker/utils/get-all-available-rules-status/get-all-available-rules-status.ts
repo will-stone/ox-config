@@ -1,5 +1,5 @@
-import { execSync } from "node:child_process"
-import * as v from "valibot"
+import { execSync } from 'node:child_process'
+import * as v from 'valibot'
 
 const Schema = v.array(
   v.object({

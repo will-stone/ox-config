@@ -1,6 +1,6 @@
-import type oxlintConfig from "../../../packages/oxlint/src/index.ts"
+import type oxlintConfig from '../../../packages/oxlint/src/index.ts'
 
-import { interopDefault } from "../interop-default/interop-default.ts"
+import { interopDefault } from '../interop-default/interop-default.ts'
 
 export async function getAllJsPluginsRules(
   ourOxlintConfig: ReturnType<typeof oxlintConfig>,
@@ -8,11 +8,11 @@ export async function getAllJsPluginsRules(
   const allJsPluginsRules: string[] = []
 
   for await (const jsPlugin of ourOxlintConfig.jsPlugins || []) {
-    const jsPluginIsString = typeof jsPlugin === "string"
+    const jsPluginIsString = typeof jsPlugin === 'string'
 
     const packageName = jsPluginIsString ? jsPlugin : jsPlugin.specifier
 
-    const pluginName = jsPluginIsString ? packageName.split("eslint-plugin-")[1] : jsPlugin.name
+    const pluginName = jsPluginIsString ? packageName.split('eslint-plugin-')[1] : jsPlugin.name
 
     const package_ = await interopDefault(import(packageName))
 

@@ -1,8 +1,8 @@
-import { expect, expectTypeOf, test } from "vitest"
+import { expect, expectTypeOf, test } from 'vitest'
 
-import { interopDefault } from "./interop-default.js"
+import { interopDefault } from './interop-default.js'
 
-test("should return default", async () => {
+test('should return default', async () => {
   const module_ = {
     default: () => null,
     x: 123,
@@ -16,7 +16,7 @@ test("should return default", async () => {
   expect(interop.x).toBeUndefined()
 })
 
-test("should return export", async () => {
+test('should return export', async () => {
   const module_ = () => null
 
   const interop = await interopDefault(module_)

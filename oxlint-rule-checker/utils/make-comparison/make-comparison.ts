@@ -1,8 +1,8 @@
-import type { DummyRule } from "oxlint"
+import type { DummyRule } from 'oxlint'
 
-import { difference } from "es-toolkit/array"
+import { difference } from 'es-toolkit/array'
 
-import type { AllAvailableRulesStatus } from "../get-all-available-rules-status/get-all-available-rules-status.ts"
+import type { AllAvailableRulesStatus } from '../get-all-available-rules-status/get-all-available-rules-status.ts'
 
 export function makeComparison(
   activeRules: [string, DummyRule | undefined][],
@@ -16,7 +16,7 @@ export function makeComparison(
   const sections: string[][] = []
 
   if (unknownRulesInUse.length) {
-    sections.push(["⁉️ Unknown rules in use:"])
+    sections.push(['⁉️ Unknown rules in use:'])
 
     for (const ruleName of unknownRulesInUse) {
       sections[0].push(ruleName)
@@ -24,7 +24,7 @@ export function makeComparison(
   }
 
   if (unsupportedRules.length) {
-    const sectionsLength = sections.push(["🆕 Unsupported rules:"])
+    const sectionsLength = sections.push(['🆕 Unsupported rules:'])
 
     for (const ruleName of unsupportedRules) {
       sections[sectionsLength - 1].push(ruleName)
@@ -35,10 +35,10 @@ export function makeComparison(
 
   for (const [activeRule, level] of activeRules) {
     let activeRuleName = activeRule
-    let activeRuleScope = "eslint"
+    let activeRuleScope = 'eslint'
 
-    if (activeRule.includes("/")) {
-      const [scope, value] = activeRule.split("/")
+    if (activeRule.includes('/')) {
+      const [scope, value] = activeRule.split('/')
       activeRuleScope = scope
       activeRuleName = value
     }
@@ -48,10 +48,10 @@ export function makeComparison(
     )
 
     if (
-      detail?.fix === "fixable_fix" &&
+      detail?.fix === 'fixable_fix' &&
       (Array.isArray(level)
-        ? level[0] !== "warn" && level[0] !== "off"
-        : level !== "warn" && level !== "off")
+        ? level[0] !== 'warn' && level[0] !== 'off'
+        : level !== 'warn' && level !== 'off')
     ) {
       errorRulesThatCouldBeWarns.push(activeRule)
     }
@@ -59,7 +59,7 @@ export function makeComparison(
 
   if (errorRulesThatCouldBeWarns.length) {
     const sectionsLength = sections.push([
-      "🛠️ Rules currently set to error that could be warn due to safe auto-fix:",
+      '🛠️ Rules currently set to error that could be warn due to safe auto-fix:',
     ])
 
     for (const rule of errorRulesThatCouldBeWarns) {
@@ -68,8 +68,8 @@ export function makeComparison(
   }
 
   if (!unknownRulesInUse.length && !unsupportedRules.length && !errorRulesThatCouldBeWarns.length) {
-    return "✅ All rules covered"
+    return '✅ All rules covered'
   }
 
-  return sections.map((lines) => lines.join("\n")).join("\n\n")
+  return sections.map((lines) => lines.join('\n')).join('\n\n')
 }
