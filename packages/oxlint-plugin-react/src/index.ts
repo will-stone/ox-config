@@ -20,7 +20,7 @@ const reactPlugin = (): Plugin => ({
     "jsx_a11y/aria-props": "error",
     "jsx_a11y/aria-proptypes": "error",
     "jsx_a11y/aria-role": "error",
-    "jsx_a11y/aria-unsupported-elements": "error",
+    "jsx_a11y/aria-unsupported-elements": "warn",
     "jsx_a11y/autocomplete-valid": "error",
     "jsx_a11y/click-events-have-key-events": "error",
     "jsx_a11y/control-has-associated-label": [
@@ -57,7 +57,7 @@ const reactPlugin = (): Plugin => ({
     "jsx_a11y/media-has-caption": "error",
     "jsx_a11y/mouse-events-have-key-events": "error",
     "jsx_a11y/no-access-key": "error",
-    "jsx_a11y/no-aria-hidden-on-focusable": "error",
+    "jsx_a11y/no-aria-hidden-on-focusable": "warn",
     "jsx_a11y/no-autofocus": ["error", { ignoreNonDOM: true }],
     "jsx_a11y/no-distracting-elements": "error",
     "jsx_a11y/no-interactive-element-to-noninteractive-role": [
@@ -106,7 +106,7 @@ const reactPlugin = (): Plugin => ({
         tags: [],
       },
     ],
-    "jsx_a11y/no-redundant-roles": "error",
+    "jsx_a11y/no-redundant-roles": "warn",
     "jsx_a11y/no-static-element-interactions": [
       "error",
       {
@@ -117,7 +117,7 @@ const reactPlugin = (): Plugin => ({
     "jsx_a11y/prefer-tag-over-role": "error",
     "jsx_a11y/role-has-required-aria-props": "error",
     "jsx_a11y/role-supports-aria-props": "error",
-    "jsx_a11y/scope": "error",
+    "jsx_a11y/scope": "warn",
     "jsx_a11y/tabindex-no-positive": "error",
 
     /**
@@ -200,15 +200,15 @@ const reactPlugin = (): Plugin => ({
     "react/forward-ref-uses-ref": "error",
     "react/hook-use-state": "error",
     "react/iframe-missing-sandbox": "error",
-    "react/jsx-boolean-value": "error",
-    "react/jsx-curly-brace-presence": "error",
+    "react/jsx-boolean-value": "warn",
+    "react/jsx-curly-brace-presence": "warn",
     "react/jsx-filename-extension": [
       "error",
       {
         extensions: [".jsx", ".tsx"],
       },
     ],
-    "react/jsx-fragments": "error",
+    "react/jsx-fragments": "warn",
     "react/jsx-handler-names": "error",
     "react/jsx-key": "error",
     "react/jsx-max-depth": "off",
@@ -230,7 +230,7 @@ const reactPlugin = (): Plugin => ({
         allowAllCaps: true,
       },
     ],
-    "react/jsx-props-no-spread-multi": "error",
+    "react/jsx-props-no-spread-multi": "warn",
     "react/jsx-props-no-spreading": [
       "error",
       {
@@ -276,7 +276,7 @@ const reactPlugin = (): Plugin => ({
     "react/react-in-jsx-scope": "off",
     "react/require-render-return": "error",
     "react/rules-of-hooks": "error",
-    "react/self-closing-comp": "error",
+    "react/self-closing-comp": "warn",
     "react/state-in-constructor": "error",
     "react/style-prop-object": "error",
     "react/void-dom-elements-no-children": "error",
