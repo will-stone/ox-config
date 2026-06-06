@@ -1,2 +1,5 @@
+# This allows the rule-checker to run.
+shamefullyHoist: true
+
 packages:
   - "packages/*"

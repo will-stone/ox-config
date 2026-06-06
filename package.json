@@ -27,23 +27,23 @@
     "lint": "oxlint",
     "build": "pnpm run build --if-present",
     "prepare": "husky",
-    "oxlint-inspector": "node ./oxlint-rule-checker/oxlint-rule-checker.ts",
+    "oxlint-rule-checker": "node ./oxlint-rule-checker/oxlint-rule-checker.ts",
     "test": "vitest"
   },
   "dependencies": {
     "es-toolkit": "^1.47.0",
     "oxfmt": "^0.52.0",
-    "oxlint": "^1.67.0"
+    "oxlint": "^1.68.0"
   },
   "devDependencies": {
-    "@types/node": "^24",
+    "@types/node": "^24.13.0",
     "husky": "^9.1.7",
     "nano-staged": "^1.0.2",
     "publint": "^0.3.21",
-    "tsdown": "^0.22.0",
+    "tsdown": "^0.22.2",
     "typescript": "^6.0.3",
     "valibot": "^1.4.1",
-    "vitest": "^4.1.7"
+    "vitest": "^4.1.8"
   },
   "devEngines": {
     "packageManager": {
