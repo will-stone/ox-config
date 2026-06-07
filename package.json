@@ -25,7 +25,7 @@
   },
   "scripts": {
     "lint": "oxlint",
-    "build": "pnpm run build --if-present",
+    "build": "pnpm -r run build",
     "prepare": "husky",
     "oxlint-rule-checker": "node ./oxlint-rule-checker/oxlint-rule-checker.ts",
     "test": "vitest"
