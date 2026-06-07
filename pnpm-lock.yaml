@@ -205,30 +205,12 @@ settings:
 
 catalogs:
   default:
-    '@types/confusing-browser-globals':
-      specifier: ^1.0.3
-      version: 1.0.3
     '@types/node':
       specifier: ^24.13.0
       version: 24.13.0
-    confusing-browser-globals:
-      specifier: ^1.0.11
-      version: 1.0.11
     es-toolkit:
       specifier: ^1.47.0
       version: 1.47.0
-    eslint-plugin-better-tailwindcss:
-      specifier: ^4.5.0
-      version: 4.5.0
-    eslint-plugin-perfectionist:
-      specifier: ^5.9.0
-      version: 5.9.0
-    eslint-plugin-react-x:
-      specifier: ^5.8.12
-      version: 5.8.12
-    globals:
-      specifier: ^17.6.0
-      version: 17.6.0
     husky:
       specifier: ^9.1.7
       version: 9.1.7

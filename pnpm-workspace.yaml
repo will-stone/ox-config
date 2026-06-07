@@ -4,6 +4,9 @@ shamefullyHoist: true
 packages:
   - 'packages/*'
 
+catalogMode: strict
+cleanupUnusedCatalogs: true
+
 catalog:
   '@types/confusing-browser-globals': ^1.0.3
   '@types/node': ^24.13.0
