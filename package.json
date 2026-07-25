@@ -1,6 +1,6 @@
 {
   "name": "@will-stone/ox-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "My configs for Oxc tooling",
   "homepage": "https://github.com/will-stone/ox-config#readme",
@@ -38,15 +38,15 @@
     "@types/confusing-browser-globals": "catalog:",
     "confusing-browser-globals": "catalog:",
     "es-toolkit": "catalog:",
-    "eslint-plugin-better-tailwindcss": "catalog:",
     "eslint-plugin-perfectionist": "catalog:",
-    "eslint-plugin-react": "catalog:",
     "globals": "catalog:",
     "oxfmt": "catalog:",
     "oxlint": "catalog:"
   },
   "devDependencies": {
     "@types/node": "catalog:",
+    "eslint-plugin-better-tailwindcss": "catalog:",
+    "eslint-plugin-react": "catalog:",
     "husky": "catalog:",
     "nano-staged": "catalog:",
     "publint": "catalog:",
@@ -57,6 +57,8 @@
     "vitest": "catalog:"
   },
   "peerDependencies": {
+    "eslint-plugin-better-tailwindcss": "catalog:",
+    "eslint-plugin-react": "catalog:",
     "oxfmt": "catalog:",
     "oxlint": "catalog:"
   },

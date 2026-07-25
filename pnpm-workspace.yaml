@@ -1,8 +1,9 @@
-# This allows the rule-checker to run.
-shamefullyHoist: true
-
 catalogMode: strict
 cleanupUnusedCatalogs: true
+
+versioning:
+  changelog:
+    storage: repository
 
 catalog:
   '@types/confusing-browser-globals': ^1.0.3

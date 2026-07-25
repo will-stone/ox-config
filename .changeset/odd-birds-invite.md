@@ -2,4 +2,4 @@
 '@will-stone/ox-config': patch
 ---
 
-A dummy release to try out pnpm changesets.
+Set `eslint-plugin-better-tailwindcss` and `eslint-plugin-better-tailwindcss` as peer deps.
