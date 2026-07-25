@@ -32,7 +32,9 @@
     "build": "tsdown --publint",
     "prepare": "husky",
     "oxlint-rule-checker": "node ./oxlint-rule-checker/oxlint-rule-checker.ts",
-    "test": "vitest"
+    "test": "vitest",
+    "change": "pnpm change",
+    "version": "pnpm version -r && pnpm i"
   },
   "dependencies": {
     "@types/confusing-browser-globals": "catalog:",
