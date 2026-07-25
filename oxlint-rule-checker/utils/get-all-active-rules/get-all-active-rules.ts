@@ -1,13 +1,13 @@
 import type { DummyRule } from 'oxlint'
 
-import type oxlintConfig from '../../../packages/oxlint/src/index.ts'
+import type { oxlintConfig } from '../../../src/oxlint/oxlint.ts'
 
 export function getAllActiveRules(
   ourOxlintConfig: ReturnType<typeof oxlintConfig>,
 ): [string, DummyRule | undefined][] {
-  const activeRootRules = Object.entries(ourOxlintConfig.rules)
+  const activeRootRules = Object.entries(ourOxlintConfig.rules || {})
 
-  const activeOverridesRules = ourOxlintConfig.overrides.flatMap(({ rules }) =>
+  const activeOverridesRules = (ourOxlintConfig.overrides || []).flatMap(({ rules }) =>
     Object.entries(rules || {}),
   )
 

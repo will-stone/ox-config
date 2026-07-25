@@ -1,6 +1,6 @@
 {
-  "name": "ox-config",
-  "private": true,
+  "name": "@will-stone/ox-config",
+  "private": false,
   "description": "My configs for Oxc tooling",
   "homepage": "https://github.com/will-stone/ox-config#readme",
   "bugs": {
@@ -17,21 +17,27 @@
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/index.mjs",
-    "./package.json": "./package.json"
+    ".": "./dist/index.mjs"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
+    "format": "oxfmt --check",
     "lint": "oxlint",
-    "build": "pnpm -r run build",
+    "build": "tsdown --publint",
     "prepare": "husky",
     "oxlint-rule-checker": "node ./oxlint-rule-checker/oxlint-rule-checker.ts",
     "test": "vitest"
   },
   "dependencies": {
+    "@types/confusing-browser-globals": "catalog:",
+    "confusing-browser-globals": "catalog:",
     "es-toolkit": "catalog:",
+    "eslint-plugin-better-tailwindcss": "catalog:",
+    "eslint-plugin-perfectionist": "catalog:",
+    "eslint-plugin-react": "catalog:",
+    "globals": "catalog:",
     "oxfmt": "catalog:",
     "oxlint": "catalog:"
   },
@@ -40,10 +46,15 @@
     "husky": "catalog:",
     "nano-staged": "catalog:",
     "publint": "catalog:",
+    "simple-git": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "valibot": "catalog:",
     "vitest": "catalog:"
+  },
+  "peerDependencies": {
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:"
   },
   "devEngines": {
     "packageManager": {

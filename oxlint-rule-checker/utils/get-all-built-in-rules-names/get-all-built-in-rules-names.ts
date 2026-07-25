@@ -2,7 +2,7 @@ import { execSync } from 'node:child_process'
 import fs from 'node:fs'
 import path from 'node:path'
 
-import type oxlintConfig from '../../../packages/oxlint/src/index.ts'
+import type { oxlintConfig } from '../../../src/oxlint/oxlint.ts'
 
 // Temporary directory for the files needed to test against.
 const tempDir = path.join(import.meta.dirname, '.tmp')

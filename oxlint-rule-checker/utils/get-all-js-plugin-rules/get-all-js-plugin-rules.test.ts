@@ -1,7 +1,7 @@
 import { uniq } from 'es-toolkit/array'
 import { expect, test } from 'vitest'
 
-import type oxlintConfig from '../../../packages/oxlint/src/index.ts'
+import type { oxlintConfig } from '../../../src/oxlint/oxlint.ts'
 
 import { getAllJsPluginsRules } from './get-all-js-plugin-rules.ts'
 

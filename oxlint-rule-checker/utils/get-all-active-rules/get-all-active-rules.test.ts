@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import type * as OxlintConfig from '../../../packages/oxlint/src/index.ts'
+import type * as OxlintConfig from '../../../src/oxlint/oxlint.ts'
 
 import { getAllActiveRules } from './get-all-active-rules.ts'
 
@@ -13,7 +13,7 @@ test('should return all root and overrides rules', () => {
         },
       ],
       rules: { 'root-rule': 'off' },
-    } as unknown as ReturnType<typeof OxlintConfig.default>),
+    } as unknown as ReturnType<typeof OxlintConfig.oxlintConfig>),
   ).toStrictEqual([
     ['root-rule', 'off'],
     ['override-rule', 'error'],
