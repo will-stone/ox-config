@@ -1,5 +1,6 @@
 {
   "name": "@will-stone/ox-config",
+  "version": "0.0.0",
   "private": false,
   "description": "My configs for Oxc tooling",
   "homepage": "https://github.com/will-stone/ox-config#readme",
@@ -17,7 +18,10 @@
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/index.mjs"
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
   },
   "publishConfig": {
     "access": "public"

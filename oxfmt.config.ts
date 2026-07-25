@@ -1,3 +1,3 @@
-import { oxfmtConfig } from './src/oxfmt.ts'
+import { oxfmtConfig } from './src/index.ts'
 
 export default oxfmtConfig()
