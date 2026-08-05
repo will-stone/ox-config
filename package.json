@@ -34,7 +34,8 @@
     "oxlint-rule-checker": "node ./oxlint-rule-checker/oxlint-rule-checker.ts",
     "test": "vitest",
     "change": "pnpm change",
-    "version": "pnpm version -r && pnpm i"
+    "version": "pnpm version -r && pnpm i",
+    "release": "pnpm run build && pnpm publish"
   },
   "dependencies": {
     "@types/confusing-browser-globals": "catalog:",
