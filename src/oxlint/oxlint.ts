@@ -93,7 +93,7 @@ export function oxlintConfig(options?: Options): OxlintConfig {
       reportUnusedDisableDirectives: 'error',
       respectEslintDisableDirectives: true,
     },
-    overrides,
+    overrides: [...overrides, ...(options?.overrides || [])],
     plugins: [
       'eslint',
       'import',
