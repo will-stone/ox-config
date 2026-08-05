@@ -4,7 +4,7 @@ import { defineConfig } from 'oxfmt'
 
 type Options = {
   // Enable or tweak settings.
-  tailwindcss?:
+  tailwind?:
     | {
         /**
          * Path to the Tailwind CSS configuration file (v3).
@@ -63,17 +63,16 @@ const oxfmtConfig = (options?: Options): OxfmtConfig =>
         'unknown',
       ],
     },
-    ...(options?.tailwindcss
+    ...(options?.tailwind
       ? {
           /**
            * Sort Tailwind CSS classes.
            * @see https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#sorttailwindcss
            */
           sortTailwindcss: {
-            config: 'config' in options.tailwindcss ? options.tailwindcss.config : undefined,
+            config: 'config' in options.tailwind ? options.tailwind.config : undefined,
             functions: ['clsx'],
-            stylesheet:
-              'stylesheet' in options.tailwindcss ? options.tailwindcss.stylesheet : undefined,
+            stylesheet: 'stylesheet' in options.tailwind ? options.tailwind.stylesheet : undefined,
           },
         }
       : {}),
