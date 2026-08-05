@@ -2,7 +2,19 @@ import type { OxlintConfig as OriginalOxlintConfig } from 'oxlint'
 
 export type Options = {
   react?: boolean
-  tailwind?: boolean
+  tailwind?:
+    | {
+        /**
+         * Path to the Tailwind CSS configuration file (v3).
+         */
+        config: string
+      }
+    | {
+        /**
+         * Path to the Tailwind CSS stylesheet (v4).
+         */
+        stylesheet: string
+      }
 }
 
 type NonNullableProps<T> = Required<{ [K in keyof T]: NonNullable<T[K]> }>

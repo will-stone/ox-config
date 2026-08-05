@@ -4,7 +4,19 @@ import { defineConfig } from 'oxfmt'
 
 type Options = {
   // Enable or tweak settings.
-  tailwindcss?: boolean | { config?: string }
+  tailwindcss?:
+    | {
+        /**
+         * Path to the Tailwind CSS configuration file (v3).
+         */
+        config: string
+      }
+    | {
+        /**
+         * Path to the Tailwind CSS stylesheet (v4).
+         */
+        stylesheet: string
+      }
 }
 
 const oxfmtConfig = (options?: Options): OxfmtConfig =>
@@ -58,9 +70,10 @@ const oxfmtConfig = (options?: Options): OxfmtConfig =>
            * @see https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#sorttailwindcss
            */
           sortTailwindcss: {
-            config:
-              typeof options.tailwindcss === 'object' ? options.tailwindcss.config : undefined,
+            config: 'config' in options.tailwindcss ? options.tailwindcss.config : undefined,
             functions: ['clsx'],
+            stylesheet:
+              'stylesheet' in options.tailwindcss ? options.tailwindcss.stylesheet : undefined,
           },
         }
       : {}),

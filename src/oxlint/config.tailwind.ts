@@ -33,6 +33,11 @@ export const tailwindConfig = (options: Options | undefined): FullOxlintConfig =
       'tailwind/no-unknown-classes': 'off',
       'tailwind/no-unnecessary-whitespace': 'off',
     },
-    settings: {},
+    settings: {
+      'better-tailwindcss': {
+        entryPoint: 'stylesheet' in options.tailwind ? options.tailwind.stylesheet : undefined,
+        tailwindConfig: 'config' in options.tailwind ? options.tailwind.config : undefined,
+      },
+    },
   } satisfies OxlintConfig
 }
