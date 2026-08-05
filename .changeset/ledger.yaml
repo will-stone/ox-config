@@ -2,3 +2,9 @@
   dir: ''
   intents:
     - odd-birds-invite
+'@will-stone/ox-config@2.0.0':
+  dir: ''
+  intents:
+    - funky-bushes-act
+    - quick-rats-repeat
+    - sixty-sails-trade
