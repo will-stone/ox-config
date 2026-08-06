@@ -5,22 +5,22 @@ const releaseConfig = {
       {
         parserOpts: {
           headerCorrespondence: ['type', 'scope', 'subject'],
-          headerPattern: /^(?<type>[!^~])(?: (?<scope>.*):)? (?<subject>.*)$/u,
+          headerPattern: /^([!^~])(?: (.*):)? (.*)$/u,
         },
-        preset: 'conventionalcommits',
         releaseRules: [
-          { release: 'major', type: '!' },
-          { release: 'minor', type: '^' },
-          { release: 'patch', type: '~' },
+          { release: 'patch', type: '\\~' },
+          { release: 'minor', type: '\\^' },
+          { release: 'major', type: '\\!' },
         ],
       },
     ],
+
     [
       '@semantic-release/release-notes-generator',
       {
         parserOpts: {
           headerCorrespondence: ['type', 'scope', 'subject'],
-          headerPattern: /^(?<type>[!^~])(?: (?<scope>.*):)? (?<subject>.*)$/u,
+          headerPattern: /^([!^~])(?: (.*):)? (.*)$/u,
         },
         preset: 'conventionalcommits',
         presetConfig: {
@@ -32,11 +32,26 @@ const releaseConfig = {
         },
       },
     ],
+
     // Not compatible with pnpm...
     // https://github.com/semantic-release/npm/issues/280
     // '@semantic-release/npm',
+
     '@anolilab/semantic-release-pnpm',
     '@semantic-release/github',
+
+    [
+      '@semantic-release/changelog',
+      {
+        changelogFile: 'CHANGELOG.md',
+      },
+    ],
+    [
+      '@semantic-release/git',
+      {
+        assets: ['CHANGELOG.md', 'package.json'],
+      },
+    ],
   ],
 }
 

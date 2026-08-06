@@ -15,7 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/setup@v2
-      - run: node --version
       - run: pnpm audit signatures
       - run: pnpm run build
       - name: Setup config
@@ -29,5 +28,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
-          pnpx --package semantic-release@25 --package conventional-changelog-conventionalcommits@10
-          --package @anolilab/semantic-release-pnpm@8 semantic-release
+          pnpx --package semantic-release@25 --package conventional-changelog-conventionalcommits@9
+          --package @anolilab/semantic-release-pnpm@8 --package @semantic-release/changelog@7
+          --package @semantic-release/git@11 semantic-release
