@@ -32,7 +32,7 @@ const releaseConfig = {
         },
       },
     ],
-    // Not compatible with pnpm.
+    // Not compatible with pnpm...
     // https://github.com/semantic-release/npm/issues/280
     // '@semantic-release/npm',
     '@anolilab/semantic-release-pnpm',
