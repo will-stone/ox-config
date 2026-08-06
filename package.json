@@ -32,10 +32,7 @@
     "build": "tsdown --publint",
     "prepare": "husky",
     "oxlint-rule-checker": "node ./oxlint-rule-checker/oxlint-rule-checker.ts",
-    "test": "vitest",
-    "change": "pnpm change",
-    "version": "pnpm version -r && pnpm i",
-    "release": "pnpm run build && pnpm publish"
+    "test": "vitest"
   },
   "dependencies": {
     "@types/confusing-browser-globals": "catalog:",
@@ -68,7 +65,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.5.1"
+      "version": "^11.20.0"
     },
     "runtime": {
       "name": "node",
