@@ -61,5 +61,15 @@
     "eslint-plugin-react": "catalog:",
     "oxfmt": "catalog:",
     "oxlint": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.20.0"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "24"
+    }
   }
 }

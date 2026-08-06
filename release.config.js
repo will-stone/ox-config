@@ -37,7 +37,15 @@ const releaseConfig = {
     // https://github.com/semantic-release/npm/issues/280
     // '@semantic-release/npm',
 
-    '@anolilab/semantic-release-pnpm',
+    [
+      '@semantic-release/exec',
+      {
+        // oxlint-disable-next-line no-template-curly-in-string
+        prepareCmd: 'pnpm version ${nextRelease.version} --git-tag-version=false',
+        publishCmd: 'pnpm publish --no-git-checks',
+      },
+    ],
+
     '@semantic-release/github',
 
     [
@@ -46,6 +54,7 @@ const releaseConfig = {
         changelogFile: 'CHANGELOG.md',
       },
     ],
+
     [
       '@semantic-release/git',
       {
