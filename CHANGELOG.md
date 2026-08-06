@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- Changed Oxfmt's `tailwindcss` option name to `tailwind` to match Oxlint's config name.
+
+### Minor Changes
+
+- Added support for Oxlint `overrides`.
+
 ## 2.0.0
 
 ### Major Changes

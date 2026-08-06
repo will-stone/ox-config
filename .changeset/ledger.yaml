@@ -8,3 +8,8 @@
     - funky-bushes-act
     - quick-rats-repeat
     - sixty-sails-trade
+'@will-stone/ox-config@3.0.0':
+  dir: ''
+  intents:
+    - smart-needles-stick
+    - ten-bats-scream
