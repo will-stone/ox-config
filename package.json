@@ -1,6 +1,6 @@
 {
   "name": "@will-stone/ox-config",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": false,
   "description": "My configs for Oxc tooling",
   "homepage": "https://github.com/will-stone/ox-config#readme",
