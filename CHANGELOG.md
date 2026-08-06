@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/will-stone/ox-config/compare/v5.0.0...v5.0.1) (2026-08-06)
+
+### Patch
+
+- Testing release
+  ([74f64e7](https://github.com/will-stone/ox-config/commit/74f64e7bcd1d63ea9078678fc05ba47ffb3538e1))
+
 # Changelog
 
 ## 3.0.0

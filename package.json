@@ -1,6 +1,6 @@
 {
   "name": "@will-stone/ox-config",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "private": false,
   "description": "My configs for Oxc tooling",
   "homepage": "https://github.com/will-stone/ox-config#readme",
@@ -61,15 +61,5 @@
     "eslint-plugin-react": "catalog:",
     "oxfmt": "catalog:",
     "oxlint": "catalog:"
-  },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.20.0"
-    },
-    "runtime": {
-      "name": "node",
-      "version": "24"
-    }
   }
 }
