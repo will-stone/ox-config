@@ -22,9 +22,12 @@ jobs:
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+      # This is a fix to get pnpm publish working.
+      # https://github.com/anolilab/semantic-release/issues/375
+      - run: pnpm pkg delete devEngines
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
           pnpx --package semantic-release@25 --package conventional-changelog-conventionalcommits@10
-          --package @semantic-release/exec@7 semantic-release
+          --package @anolilab/semantic-release-pnpm@8 semantic-release

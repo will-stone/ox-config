@@ -35,14 +35,7 @@ const releaseConfig = {
     // Not compatible with pnpm.
     // https://github.com/semantic-release/npm/issues/280
     // '@semantic-release/npm',
-    [
-      '@semantic-release/exec',
-      {
-        // oxlint-disable-next-line no-template-curly-in-string
-        prepareCmd: 'pnpm version ${nextRelease.version} --git-tag-version=false',
-        publishCmd: 'pnpm publish --no-git-checks',
-      },
-    ],
+    '@anolilab/semantic-release-pnpm',
     '@semantic-release/github',
   ],
 }
