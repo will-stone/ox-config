@@ -1,3 +1,5 @@
+// oxlint-disable no-template-curly-in-string
+
 const releaseConfig = {
   plugins: [
     [
@@ -40,7 +42,6 @@ const releaseConfig = {
     [
       '@semantic-release/exec',
       {
-        // oxlint-disable-next-line no-template-curly-in-string
         prepareCmd: 'pnpm version ${nextRelease.version} --git-tag-version=false',
         publishCmd: 'pnpm publish --no-git-checks',
       },
@@ -60,6 +61,7 @@ const releaseConfig = {
       '@semantic-release/git',
       {
         assets: ['CHANGELOG.md', 'package.json'],
+        message: 'v${nextRelease.version} [skip ci]',
       },
     ],
   ],
