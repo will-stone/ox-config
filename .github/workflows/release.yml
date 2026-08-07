@@ -17,10 +17,6 @@ jobs:
       - uses: pnpm/setup@v2
       - run: pnpm audit signatures
       - run: pnpm run build
-      - name: Setup config
-        run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
