@@ -1,0 +1,61 @@
+plugins:
+  # Extracts commits starting with ~, ^, or !
+  - path: '@semantic-release/commit-analyzer'
+    parserOpts:
+      headerPattern: '^([!^~])(?: (.*):)? (.*)$'
+      headerCorrespondence:
+        - type
+        - scope
+        - subject
+    # The type can be a glob pattern so the characters need to be escaped.
+    releaseRules:
+      - release: patch
+        type: "\\~"
+      - release: minor
+        type: "\\^"
+      - release: major
+        type: "\\!"
+
+  # Generates release notes using Major, Minor, and Patch sections.
+  - path: '@semantic-release/release-notes-generator'
+    parserOpts:
+      headerPattern: '^([!^~])(?: (.*):)? (.*)$'
+      headerCorrespondence:
+        - type
+        - scope
+        - subject
+    preset: conventionalcommits
+    presetConfig:
+      types:
+        - hidden: false
+          section: Major
+          type: '!'
+        - hidden: false
+          section: Minor
+          type: '^'
+        - hidden: false
+          section: Patch
+          type: '~'
+
+  # Uses pnpm to bump and publish the release.
+  - path: '@semantic-release/exec'
+    prepareCmd: 'pnpm version ${nextRelease.version} --git-tag-version=false'
+    publishCmd: 'pnpm publish --no-git-checks'
+
+  # Saves the release notes to GutHub's Releases page.
+  - '@semantic-release/github'
+
+  # Writes to the CHANGELOG.md file.
+  - path: '@semantic-release/changelog'
+    changelogFile: CHANGELOG.md
+    changelogTitle: '# Changelog'
+
+  # Commits the changes with a "vX.Y.Z" message.
+  - path: '@semantic-release/git'
+    assets:
+      - CHANGELOG.md
+      - package.json
+    message: |
+      v${nextRelease.version}
+
+      [skip ci]
