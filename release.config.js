@@ -61,7 +61,7 @@ const releaseConfig = {
       '@semantic-release/git',
       {
         assets: ['CHANGELOG.md', 'package.json'],
-        message: 'v${nextRelease.version} [skip ci]',
+        message: 'v${nextRelease.version}\n\n[skip ci]',
       },
     ],
   ],
