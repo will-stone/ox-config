@@ -2,7 +2,7 @@
 
 const headerPattern = /^([!^~])(?: (.*):)? (.*)$/u
 const headerCorrespondence = ['type', 'scope', 'subject']
-const parserOpts = { headerCorrespondence, headerPattern }
+const parserOpts = { body: true, headerCorrespondence, headerPattern }
 
 const releaseConfig = {
   plugins: [
@@ -30,6 +30,12 @@ const releaseConfig = {
             { hidden: false, section: 'Minor', type: '^' },
             { hidden: false, section: 'Patch', type: '~' },
           ],
+        },
+        writerOpts: {
+          commitPartial:
+            '- {{#if scope}}{{scope}}: {{/if}}{{subject}}\n{{~#if hash}} {{hash}}\n{{~/if}}{{~#if body}}\n{{body}}\n{{~/if}}',
+          commitsSort: ['subject', 'scope'],
+          mainTemplate: '{{> header}}\n{{> commitDetails}}\n',
         },
       },
     ],
