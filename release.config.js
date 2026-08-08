@@ -23,6 +23,7 @@ const releaseConfig = {
       '@semantic-release/release-notes-generator',
       {
         parserOpts,
+        preset: 'conventionalcommits',
         presetConfig: {
           types: [
             { hidden: false, section: 'Major', type: '!' },
