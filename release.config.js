@@ -34,15 +34,6 @@ const releaseConfig = {
             { hidden: false, section: 'Patch', type: '~' },
           ],
         },
-        //         writerOpts: {
-        //           // Add commit body to the changelog entry.
-        //           commitPartial: `* {{subject}}
-
-        // {{~!-- commit hash --}} {{#if @root.linkReferences}}([{{shortHash}}]({{#if @root.host}}{{@root.host}}/{{/if}}{{#if @root.owner}}{{@root.owner}}/{{/if}}{{@root.repository}}/{{@root.commit}}/{{hash}})){{else}}{{hash~}}{{/if}}{{#if body}}
-
-        //   {{body}}
-        // {{/if}}`,
-        //         },
       },
     ],
 
