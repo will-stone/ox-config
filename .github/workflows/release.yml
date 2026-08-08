@@ -21,6 +21,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
-          pnpx --package semantic-release@25 --package conventional-changelog-conventionalcommits@10
+          pnpx --package semantic-release@25 --package conventional-changelog-conventionalcommits@9
           --package @semantic-release/changelog@7 --package @semantic-release/git@11 --package
           @semantic-release/exec@7 semantic-release
