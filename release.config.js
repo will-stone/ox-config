@@ -2,7 +2,14 @@
 
 const headerPattern = /^([!^~])(?: (.*):)? (.*)$/u
 const headerCorrespondence = ['type', 'scope', 'subject']
-const parserOpts = { body: true, headerCorrespondence, headerPattern }
+const parserOpts = { headerCorrespondence, headerPattern }
+
+const commitPartial = `* {{subject}}
+
+{{~!-- commit hash --}} {{#if @root.linkReferences}}([{{shortHash}}]({{#if @root.host}}{{@root.host}}/{{/if}}{{#if @root.owner}}{{@root.owner}}/{{/if}}{{@root.repository}}/{{@root.commit}}/{{hash}})){{else}}{{hash~}}{{/if}}{{#if body}}
+
+  {{body}}
+{{/if}}`
 
 const releaseConfig = {
   plugins: [
@@ -32,10 +39,8 @@ const releaseConfig = {
           ],
         },
         writerOpts: {
-          commitPartial:
-            '- {{#if scope}}{{scope}}: {{/if}}{{subject}}\n{{~#if hash}} {{hash}}\n{{~/if}}{{~#if body}}\n{{body}}\n{{~/if}}',
+          commitPartial,
           commitsSort: ['subject', 'scope'],
-          mainTemplate: '{{> header}}\n{{> commitDetails}}\n',
         },
       },
     ],
