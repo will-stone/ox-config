@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.5](https://github.com/will-stone/ox-config/compare/v5.0.4...v5.0.5) (2026-08-08)
+
+### Patch
+
+- Test skip CI on release commit
+  ([abf655e](https://github.com/will-stone/ox-config/commit/abf655e07684961d5aa3f3aeeb406aaaab71e02a))
+
 ## [5.0.4](https://github.com/will-stone/ox-config/compare/v5.0.3...v5.0.4) (2026-08-07)
 
 ### Patch
