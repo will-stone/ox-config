@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.13](https://github.com/will-stone/ox-config/compare/v5.0.12...v5.0.13) (2026-08-08)
+
+### Patch
+
+- A scope test
+  ([b216ec0](https://github.com/will-stone/ox-config/commit/b216ec019e11440dc9e15b619eb335e7b2e96b99))
+
 ## [5.0.12](https://github.com/will-stone/ox-config/compare/v5.0.11...v5.0.12) (2026-08-08)
 
 ### Patch
