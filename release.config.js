@@ -26,9 +26,9 @@ const releaseConfig = {
         preset: 'conventionalcommits',
         presetConfig: {
           types: [
-            { hidden: false, section: 'Major', type: '!' },
-            { hidden: false, section: 'Minor', type: '^' },
-            { hidden: false, section: 'Patch', type: '~' },
+            { effect: 'bump', section: 'Major', type: '!' },
+            { effect: 'bump', section: 'Minor', type: '^' },
+            { effect: 'bump', section: 'Patch', type: '~' },
           ],
         },
       },
