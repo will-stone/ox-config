@@ -1,15 +1,11 @@
 // oxlint-disable no-template-curly-in-string
 
+// Extract the type, optional scope, and subject from the commit message.
 const headerPattern = /^([!^~])(?: (.*):)? (.*)$/u
+// The order of the extracted items.
 const headerCorrespondence = ['type', 'scope', 'subject']
+// Shared parserOpts to use with the commit analyzer and the release notes generator.
 const parserOpts = { headerCorrespondence, headerPattern }
-
-const commitPartial = `* {{subject}}
-
-{{~!-- commit hash --}} {{#if @root.linkReferences}}([{{shortHash}}]({{#if @root.host}}{{@root.host}}/{{/if}}{{#if @root.owner}}{{@root.owner}}/{{/if}}{{@root.repository}}/{{@root.commit}}/{{hash}})){{else}}{{hash~}}{{/if}}{{#if body}}
-
-  {{body}}
-{{/if}}`
 
 const releaseConfig = {
   plugins: [
@@ -39,8 +35,13 @@ const releaseConfig = {
           ],
         },
         writerOpts: {
-          commitPartial,
-          commitsSort: ['subject', 'scope'],
+          // Add commit body to the changelog entry.
+          commitPartial: `* {{subject}}
+
+{{~!-- commit hash --}} {{#if @root.linkReferences}}([{{shortHash}}]({{#if @root.host}}{{@root.host}}/{{/if}}{{#if @root.owner}}{{@root.owner}}/{{/if}}{{@root.repository}}/{{@root.commit}}/{{hash}})){{else}}{{hash~}}{{/if}}{{#if body}}
+
+  {{body}}
+{{/if}}`,
         },
       },
     ],
