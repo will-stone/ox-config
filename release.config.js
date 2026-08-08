@@ -1,15 +1,17 @@
 // oxlint-disable no-template-curly-in-string
 
+const headerPattern = /^([!^~])(?: (.*):)? (.*)$/u
+const headerCorrespondence = ['type', 'scope', 'subject']
+const parserOpts = { headerCorrespondence, headerPattern }
+
 const releaseConfig = {
   plugins: [
     [
       '@semantic-release/commit-analyzer',
       {
-        parserOpts: {
-          headerCorrespondence: ['type', 'scope', 'subject'],
-          headerPattern: /^([!^~])(?: (.*):)? (.*)$/u,
-        },
+        parserOpts,
         releaseRules: [
+          // The type can be a glob pattern so the characters need to be escaped.
           { release: 'patch', type: '\\~' },
           { release: 'minor', type: '\\^' },
           { release: 'major', type: '\\!' },
@@ -20,11 +22,7 @@ const releaseConfig = {
     [
       '@semantic-release/release-notes-generator',
       {
-        parserOpts: {
-          headerCorrespondence: ['type', 'scope', 'subject'],
-          headerPattern: /^([!^~])(?: (.*):)? (.*)$/u,
-        },
-        preset: 'conventionalcommits',
+        parserOpts,
         presetConfig: {
           types: [
             { hidden: false, section: 'Major', type: '!' },
