@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.1.0](https://github.com/will-stone/ox-config/compare/v6.0.1...v6.1.0) (2026-10-18)
+
+### Minor
+
+- Add Astro support to Oxfmt
+  ([5b66592](https://github.com/will-stone/ox-config/commit/5b66592d5c9ec928e78f5f2a95ad8ec24bb7ef54))
+- Use latest React compiler rules
+  ([e4ab2e2](https://github.com/will-stone/ox-config/commit/e4ab2e292917c5ce29c025d9a0c229eaf150e2d3))
+
 ## [6.0.1](https://github.com/will-stone/ox-config/compare/v6.0.0...v6.0.1) (2026-08-08)
 
 ### Patch
