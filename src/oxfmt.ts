@@ -3,10 +3,6 @@ import type { OxfmtConfig } from 'oxfmt'
 import { defineConfig } from 'oxfmt'
 
 type Options = {
-  /**
-   * Enable Astro formatting. Requires `@astrojs/compiler-rs` to be installed.
-   */
-  astro?: boolean
   // Enable or tweak settings.
   tailwind?:
     | {
@@ -25,10 +21,6 @@ type Options = {
 
 const oxfmtConfig = (options?: Options): OxfmtConfig =>
   defineConfig({
-    /**
-     *
-     */
-    astro: options?.astro,
     /**
      * Wraps prose if it exceeds the print width.
      * @see https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#prosewrap
