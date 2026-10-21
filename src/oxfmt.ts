@@ -17,9 +17,11 @@ type Options = {
          */
         stylesheet: string
       }
-}
+} & OxfmtConfig
 
-const oxfmtConfig = (options?: Options): OxfmtConfig =>
+const defaultOptions = {}
+
+const oxfmtConfig = ({ tailwind, ...restOptions }: Options = defaultOptions): OxfmtConfig =>
   defineConfig({
     /**
      * Wraps prose if it exceeds the print width.
@@ -63,19 +65,20 @@ const oxfmtConfig = (options?: Options): OxfmtConfig =>
         'unknown',
       ],
     },
-    ...(options?.tailwind
+    ...(tailwind
       ? {
           /**
            * Sort Tailwind CSS classes.
            * @see https://oxc.rs/docs/guide/usage/formatter/config-file-reference.html#sorttailwindcss
            */
           sortTailwindcss: {
-            config: 'config' in options.tailwind ? options.tailwind.config : undefined,
+            config: 'config' in tailwind ? tailwind.config : undefined,
             functions: ['clsx'],
-            stylesheet: 'stylesheet' in options.tailwind ? options.tailwind.stylesheet : undefined,
+            stylesheet: 'stylesheet' in tailwind ? tailwind.stylesheet : undefined,
           },
         }
       : {}),
+    ...restOptions,
   })
 
 export { oxfmtConfig }

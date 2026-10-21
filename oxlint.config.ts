@@ -1,3 +1,5 @@
+import { defineConfig } from 'oxlint'
+
 import { oxlintConfig } from './src/index.ts'
 
-export default oxlintConfig()
+export default defineConfig(oxlintConfig())
