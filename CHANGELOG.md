@@ -1,5 +1,14 @@
 # Changelog
 
+## [6.2.0](https://github.com/will-stone/ox-config/compare/v6.1.0...v6.2.0) (2026-10-21)
+
+### Minor
+
+- Allow any oxfmt options to be passed through and override these settings
+  ([86cde34](https://github.com/will-stone/ox-config/commit/86cde34831d251468c436cf8423e15a5a0882875))
+- Revert Astro support from oxfmt (this config can be spread in)
+  ([be4c305](https://github.com/will-stone/ox-config/commit/be4c3059e804825a84f15598eaead4278c449626))
+
 ## [6.1.0](https://github.com/will-stone/ox-config/compare/v6.0.1...v6.1.0) (2026-10-18)
 
 ### Minor
